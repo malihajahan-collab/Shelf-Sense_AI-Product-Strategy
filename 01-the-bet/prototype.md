@@ -1,19 +1,22 @@
 # The Prototype Bet
 
 ## What I Built
-<!-- One sentence: what does this prototype demonstrate? -->
+A demand-planning copilot that flags forecasts needing attention and helps planners understand what may be driving the change.
 
 ## Tool Used
-<!-- v0 / Cursor / Lovable / other -->
+Bolt
 
 ## Prototype Link
-<!-- Paste the shareable URL -->
+[<!-- Paste the shareable URL -->](https://shelfsense-ai-copilo-udma.bolt.host)
+<img width="1879" height="840" alt="shelfsense-prototype" src="https://github.com/user-attachments/assets/6744c089-ba01-49a4-96fe-35bd60a3d081" />
+
+
 
 ## AI Value Archetype
-<!-- Automator / Copilot / Oracle / Creator / Orchestrator -->
+Copilot
 
 ## The Bet in One Sentence
-<!-- What you're building, for whom, why now -->
+We are building an AI copilot for CPG demand planners to identify high-priority forecast issues and make faster, better-informed planning decisions.
 
 ## Kill Criteria
-<!-- When would you stop? What evidence would kill this bet? -->
+Stop if planners do not find the insights useful enough to change or accelerate a real planning decision, or if the AI cannot provide reliable rationale from available planning data.
