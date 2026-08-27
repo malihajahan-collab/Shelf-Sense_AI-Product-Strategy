@@ -1,4 +1,4 @@
-# ShelfSense — Product Overview & Executive Summary
+# ShelfSense — Product Overview
 
 ## Company Overview
 
@@ -237,14 +237,3 @@ Achieving this could potentially improve:
 The central question guiding the certification case study is:
 
 > **Where, if anywhere, can ShelfSense use AI to create sufficiently valuable, defensible, trusted, and economically sustainable improvements to CPG demand planning?**
-
-The six strategy modules will progressively answer that question across:
-
-1. **The Bet** — What should we build and how do we validate it quickly?
-2. **The Moat** — Why will the advantage be difficult to copy?
-3. **The Margin** — Can the product create profitable economics?
-4. **The Contract** — Why should users trust the system?
-5. **The Guardrails** — What happens when the system scales or fails?
-6. **The Pitch** — Why should leadership fund and deploy the strategy?
-
-At this stage, **no AI solution has been selected**. The case begins with the customer problem, business opportunity, data environment, and strategic constraints so that the eventual AI product decision can emerge from evidence rather than from a predetermined technology solution.
