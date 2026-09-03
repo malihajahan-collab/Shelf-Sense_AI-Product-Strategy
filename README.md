@@ -37,7 +37,7 @@
 
 **Why this won't get copied in 6 months.**
 
-- **Data Flywheel Score:**
+- **Data Flywheel Score:** 10/20
 - **Weakest Loop:** Network Loop - 1/5
 - **Top Encroachment Threat:** SAP / SAP IBP
 - **Encroachment Defense:** Do not depend on a network effect that does not yet exist. First build strong customer-level correction, preference, and outcome loops.…
@@ -51,14 +51,14 @@
 
 **Will this make money or bleed it?**
 
-- **Gross Margin (current):**
-- **Gross Margin (AI-adjusted):**
+- **Gross Margin (current):**81%
+- **Gross Margin (AI-adjusted):** 80.2%
 - **Pricing Model:** **Hybrid — base subscription + AI add-on + usage allowance/overage**
 - **Pricing Today → Tomorrow:** ShelfSense is sold as an enterprise SaaS subscription. For Module 3 modeling, revenue is normalized to **$2,500 per AI-enabled planner per month**. This is a unit-economics allocation, not a literal seat price. → Enterprise AI add-on with an included monthly analysis allowance, plus predictable overage for materially higher usage.
 - **Total AI COGS / unit:** $35.00
 - **Cascading Strategy:** Triage: Small model + deterministic rules for routine classification and prioritization; frontier: High-reasoning model for ambiguous, conflicting-signal, or high-financial-impact cases; ratio Baseline target 80% lower-cost / 20% frontier; optimized target 90% lower-cost / 10% frontier
 - **Net Margin Shift:** The AI layer reduces total product gross margin by ~1.4 points at baseline and ~0.8 points after optimization before any AI revenue.…
-- **Break-even at:**
+- **Break-even at:**$21/user/month after optimization
 
 → Details: [`03-the-margin/`](03-the-margin/)
 
