@@ -4,70 +4,82 @@
 
 | Loop | Input | Output | Compounds? | Status |
 |------|-------|--------|-----------|--------|
-| **Correction Loop** | Planner accepts, modifies, or rejects an AI recommendation + actual forecast outcome | Better understanding of which signals and recommendations work in similar situations | Y | active |
-| **Preference Loop** | Planner/team review patterns, thresholds, accepted recommendations, override behavior | Planner- and team-specific prioritization and recommendation preferences | Y | broken |
-| **Network Learning Loop** | De-identified outcome patterns and reusable planning signals across customers | Stronger CPG benchmarks and reusable decision intelligence | Y | missing |
+| **Correction Loop** | Planner accepts/modifies/rejects an AI insight + reason + actual outcome | Better customer-specific exception prioritization and explanation | Y | active |
+| **Preference Loop** | Planner/team thresholds, review patterns, accepted/rejected recommendations | Customer/team-specific prioritization preferences | Y | broken |
+| **Network Learning Loop** | Permissioned, de-identified patterns across customers | Shared benchmark intelligence | Y | missing |
 
-**Broken loop identified by partner:** Preference Loop — ShelfSense observes planner behavior but does not yet persist and reuse that behavior as a structured preference profile.
+**Broken loop identified by partner:** Preference Loop — ShelfSense observes planner behavior but does not yet persist it as a structured learning asset.
 
-**Fix plan:** Capture structured reasons when planners accept, modify, or reject recommendations; associate those decisions with planner/team context and actual outcomes; and use the resulting signals to personalize future prioritization and recommendations.
+**Fix plan:** Add structured reason capture, associate feedback with planner/team/category context, and connect each decision to subsequent outcomes. Build customer-level personalization first. Do not make cross-customer network effects a dependency of the strategy.
 
 ---
 
 ## Context Connectivity
 
-ShelfSense already connects several domains within a customer's demand-planning workflow:
+Within one customer, the target decision lineage is:
 
-**Sales history → Promotions → Inventory → Retailer forecast → Forecast performance → Planner decision → Actual outcome**
+**Sales history → Promotion → Inventory → Retailer input → Forecast → AI flag → Planner decision + reason → Actual outcome**
 
-This gives ShelfSense strong domain context and supports the **4/5 Contextual Moat** identified in Module 1.
+ShelfSense should persist that lineage so future insights can reference not only the raw data but also what the planning team previously decided and what happened afterward.
 
-The main silo exists **between customers**. Raw customer commercial data remains isolated because of contractual and privacy constraints, limiting ShelfSense's Network Loop.
+### Current silo
+The largest silo is **between customers**. Raw commercial data must remain isolated unless contracts explicitly permit another use.
 
-The target architecture therefore keeps raw customer data separated while allowing permissioned, de-identified signals such as forecast-error patterns, promotion archetypes, correction outcomes, and benchmark ranges to contribute to reusable CPG intelligence.
+### Strategic rule
+Cross-customer learning is opt-in and secondary. The first compounding moat must work entirely within one customer's governed data boundary.
 
 ---
 
 ## Governance Policy
 
 **Scope:**  
-AI-assisted forecast prioritization, driver analysis, explanation, and recommended planning actions inside ShelfSense.
+AI-assisted forecast exception prioritization, grounded driver explanation, and suggested investigation/planning actions.
 
 **Autonomy boundaries:**  
-The AI may identify issues, analyze evidence, and recommend actions. It may not autonomously execute material forecast changes, inventory decisions, or commercial commitments in the initial Copilot phase.
+- AI may rank, explain, and recommend.
+- AI may not autonomously execute material forecast, inventory, pricing, production, or commercial changes in v1.
+- Autonomy expansion requires a separate governance approval and reliability case.
 
 **Escalation triggers:**  
-Human review is required when:
-- confidence is below 70%;
-- critical data is missing or stale;
-- planning signals conflict materially;
-- the recommendation exceeds configured forecast-change thresholds;
-- the SKU, retailer, or promotion has high financial impact;
-- the recommendation falls outside evaluated scenarios.
+- calibrated confidence <70%;
+- stale/missing critical data;
+- materially conflicting signals;
+- high financial exposure;
+- out-of-distribution / unevaluated scenario;
+- policy or permission conflict;
+- model/provider change that has not passed regression testing.
 
 **Audit cadence:**  
-- Monthly review of accuracy, hallucination, overrides, latency, and drift
-- Quarterly governance review of model performance, vendor exposure, data usage, and incidents
-- Immediate review after any material AI-related planning incident
+- weekly pilot quality review;
+- monthly reliability, cost, and feedback-loop review;
+- quarterly model/vendor/data-governance review;
+- immediate incident review after any material AI-related failure.
+
+**Data governance:**  
+- customer data remains tenant-isolated;
+- least-privilege access applies to retrieval;
+- prompt/output telemetry follows defined retention policy;
+- model-training use requires explicit contractual permission;
+- model/provider changes require documented regression testing.
 
 **Regulatory exposure (EU AI Act / other):**  
-ShelfSense is a B2B demand-planning Copilot and is not currently designed to make decisions about individuals or other obviously high-risk regulated use cases. However, deployments must still maintain appropriate transparency, data governance, auditability, privacy controls, vendor documentation, and human oversight, with requirements reassessed as markets and product autonomy expand.
+No definitive regulatory classification is assumed in this fictional case. Before EU deployment or any expansion in autonomy, legal counsel must confirm applicable classification, transparency, data-governance, documentation, and human-oversight obligations.
 
 ---
 
 ## Agent Topology
-<!-- If using agents: what can each agent do? What can't it do? Who approves what? -->
 
-ShelfSense v1 is a **Copilot, not an autonomous multi-agent system**. AI capabilities are separated into constrained components with explicit boundaries:
+ShelfSense v1 remains a **Copilot**, not an autonomous multi-agent system.
 
 | Component | Can Do | Cannot Do | Approval |
 |-----------|--------|-----------|----------|
-| **Exception Triage** | Rank and flag forecasts that require attention | Change forecasts or inventory plans | No approval needed to flag |
-| **Driver Analysis** | Analyze sales, promotion, inventory, and retailer signals and explain likely drivers | Invent missing evidence or override source data | Planner reviews explanation |
-| **Recommendation Engine** | Propose a planning action with rationale and confidence | Execute material forecast changes | Planner approval required |
-| **Reliability / Policy Gate** | Check confidence, data freshness, thresholds, and escalation rules | Override governance rules | Automatically blocks or escalates |
+| **Exception Triage** | Rank/flag high-impact forecast exceptions | Change forecasts or inventory plans | No approval needed to surface |
+| **Driver Analysis** | Retrieve and summarize supporting sales, promotion, inventory, and retailer signals | Invent missing evidence or state unsupported causality | Planner reviews |
+| **Action Suggestion** | Suggest next investigation or planning action | Execute consequential changes | Planner approval required |
+| **Reliability / Policy Gate** | Check data freshness, risk tier, permissions, and escalation rules | Override governance rules | Automatically blocks/escalates |
+| **Feedback Capture** | Record Accept/Modify/Reject + reason + eventual outcome | Use customer data outside permitted boundaries | Governed by tenant policy |
 
-The **Demand Planner remains the accountable decision-maker** for consequential planning changes.
+The planner remains accountable for consequential demand decisions.
 
 ---
 
@@ -75,16 +87,27 @@ The **Demand Planner remains the accountable decision-maker** for consequential 
 
 | Tool | Owner | Risk Level | Decision |
 |------|-------|-----------|----------|
-| **Public generative AI assistants used for planning analysis** | Individual employees | H | govern |
-| **Microsoft Copilot used within approved enterprise environment** | IT / Business teams | M | keep |
-| **Unapproved spreadsheet AI plug-ins / extensions** | Individual planners | H | kill |
+| Public generative AI used with planning data | Individual employees | H | govern |
+| Approved enterprise Copilot environment | IT / business teams | M | keep / govern |
+| Unapproved spreadsheet AI plug-ins/extensions | Individual planners | H | kill |
 
-**Total tools found:** 5  
-**Tools after triage:** 3  
-**Estimated hidden spend:** ~$2,400/month across uncoordinated individual subscriptions and tools
+**Total tools found:** TBD — complete a 30-day discovery audit  
+**Tools after triage:** TBD  
+**Estimated hidden spend:** TBD — validate through procurement/expense review
 
 ### Shadow AI Policy
 
-Approved AI tools may be used only within enterprise-controlled environments and according to customer-data handling rules. Customer sales, promotion, retailer, inventory, or forecast data must not be uploaded into unapproved public AI tools.
+Do not invent precision before the audit. The first governance action is discovery: identify tools, data flows, owners, contracts, and spend.
 
-The objective is not to prohibit useful AI experimentation, but to move high-value workflows into governed ShelfSense capabilities where data access, evaluation, cost, auditability, and feedback can be managed centrally.
+Approved AI may be used only in enterprise-controlled environments consistent with customer data-handling rules. Customer sales, promotion, retailer, inventory, or forecast data must not be uploaded into unapproved public AI tools.
+
+---
+
+## Kill Switch
+
+ShelfSense must be able to:
+- disable generative recommendations while preserving core SaaS planning;
+- revert to deterministic exception rules if model reliability degrades;
+- isolate a faulty model/provider;
+- pause learning/feedback ingestion without losing audit history; and
+- notify affected customers when a material incident requires it.
