@@ -23,7 +23,7 @@
 
 - **Product:** ShelfSense — B2B Demand & Promotion Planning Platform
 - **AI Value Archetype:** Copilot
-- **Vulnerability Scores:** _(add: Moat _/5 · Data _/5 · Platform _/5)_
+- **Vulnerability Scores:** _(add: Moat 4/5 · Data 3/5 · Platform 3/5)_
 - **Top Risk:** **Data Advantage.** ShelfSense has strong customer context but has not yet converted planner corrections and business outcomes into a proprietary learning loop that clearly improves the product with continued use.
 - **Confidence:** M
 - **Prototype:** https://shelfsense-ai-copilo-udma.bolt.host
