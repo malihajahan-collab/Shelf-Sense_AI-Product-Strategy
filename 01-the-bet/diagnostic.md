@@ -2,42 +2,51 @@
 
 ## Product
 
-**Product:** ShelfSense — B2B Demand & Promotion Planning Platform
+**Product:** ShelfSense — B2B Demand & Promotion Planning Platform  
 **Your Role:** Senior Product Manager
+
+---
 
 ## Scores
 
 ### Contextual Moat — 4/5
+*Workflow depth × switching cost. Would users leave in a weekend if a competitor showed up?*
 
-_Workflow depth × switching cost._
+**Score rationale:**  
+ShelfSense is embedded in a recurring, high-value demand-planning workflow and already connects historical sales, promotions, inventory, retailer forecasts, forecast history, planner overrides, and S&OP preparation. That creates meaningful workflow depth and switching cost. The score remains below 5 because large planning suites can replace this layer if they combine comparable capabilities with easier integration and procurement.
 
-**Score rationale:**
-ShelfSense is embedded in a high-value, recurring demand-planning workflow. It brings together historical sales, promotions, inventory, retailer forecasts, forecast history, and planner overrides inside the same planning cycle, creating meaningful workflow depth and switching cost. It is not a 5 because customers could still migrate to another enterprise planning suite with sufficiently strong integrations and implementation support.
+**Named attacker (from partner challenge):** SAP / SAP Integrated Business Planning (IBP)
 
-Named attacker (from partner challenge): SAP / SAP Integrated Business Planning (IBP)
+---
 
 ### Data Advantage — 3/5
+*Proprietary signal that compounds with usage. What do you see that OpenAI doesn't?*
 
-_Proprietary signal that compounds with usage. What do you see that OpenAI doesn't?_
+**Score rationale:**  
+ShelfSense sees customer-specific signals a generic model does not automatically possess: forecast-versus-actual performance, promotion history, inventory constraints, planner overrides, and workflow outcomes. However, many correction reasons are unstructured and customer contracts restrict broad cross-customer model training, so ShelfSense has valuable data but not yet a proven compounding data moat.
 
-**Score rationale:**
-ShelfSense has valuable customer-specific data, including forecast-versus-actual performance, promotions, inventory, and planner overrides. However, the advantage does not yet compound strongly: customer datasets are siloed and inconsistent, contracts restrict cross-customer model training, and many planner overrides lack structured reasons. ShelfSense therefore has rich data, but not yet a defensible proprietary data flywheel.
+**Named attacker (from partner challenge):** SAP / SAP IBP, because it already sits close to source-of-truth enterprise planning data.
 
-Named attacker (from partner challenge): SAP / SAP Integrated Business Planning (IBP)
+---
 
 ### Platform Exposure — 3/5
+*Encroachment risk × pivot speed. If Apple/Google/OpenAI ships your hero feature native — then what?*
 
-_Encroachment risk × pivot speed. If Apple/Google/OpenAI ships your hero feature native — then what?_
+**Score rationale:**  
+A generic assistant cannot easily replace the full ShelfSense workflow, but SAP, Microsoft, Blue Yonder, and similar platforms can reproduce visible AI features such as summarization, anomaly explanation, and recommendations. ShelfSense is protected by workflow context, but not by the AI feature itself.
 
-**Score rationale:**
-A generic AI assistant cannot easily replace ShelfSense's end-to-end planning workflow, but established enterprise planning platforms could embed comparable AI capabilities around forecasting, anomaly detection, and decision support. ShelfSense has some protection from workflow depth and integration, but the AI features themselves would not be difficult enough to copy to provide a moat on their own.
+**Named attacker (from partner challenge):** SAP / SAP IBP
 
-Named attacker (from partner challenge): SAP / SAP Integrated Business Planning (IBP)
+---
 
 ## Top Vulnerability
 
-Data Advantage. ShelfSense has rich customer-specific data, but it does not yet have a proprietary data loop that compounds across customers.
+**Data Advantage.** ShelfSense has strong customer context but has not yet converted planner corrections and business outcomes into a proprietary learning loop that clearly improves the product with continued use.
 
 ## Confidence Level
 
-H — High confidence. The workflow moat is credible, but the lack of a compounding proprietary data advantage is a clear strategic weakness that should carry forward into Module 2's flywheel analysis.
+**M — Medium confidence.** The problem and contextual moat are credible, but the data flywheel, willingness to pay, and competitive durability remain unproven.
+
+## Board Revision
+
+The first AI bet should not attempt to become a broad autonomous decision engine. ShelfSense should begin with the workflow where its context is most useful and the risk is controllable: **prioritizing high-impact forecast exceptions, explaining the evidence behind them, and helping planners determine what to investigate next.**
