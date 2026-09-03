@@ -1,30 +1,40 @@
 # Three-Horizon Roadmap & Board Pitch
 
-## Roadmap
+# ShelfSense AI Initiative Roadmap
 
-### Horizon 1 — Now (0-3 months)
-*Prove the wedge before scaling the platform.*
+## Horizon 1 — Ship (0-4 weeks)
 
-| Initiative | Metric | Confidence |
-|-----------|--------|-----------|
-| Run a 3-design-partner Copilot pilot focused on high-impact forecast exception triage, grounded driver explanation, and next investigation step | ≥15% reduction in investigation time; ≥80% precision on high-priority flags; ≥2 of 3 partners indicate willingness to pay/continue | M |
-| Build the minimum reliability + learning foundation: 100+ case golden dataset, structured Accept/Modify/Reject reasons, outcome linkage, provider fallback, and telemetry | Reliability contract passes; ≥80% of reviewed insights generate usable structured feedback; backup provider passes regression gate | M |
+| Initiative | Strategy Component | Why it ships now | Confidence |
+|---|---|---|---|
+| **Build structured planner feedback capture** | Moat | The correction loop cannot begin without capturing Accept / Modify / Reject + reason from the first pilot interaction. Every uncaptured decision is lost proprietary learning. | H |
+| **Create 100+ case golden evaluation dataset** | Contract | The current 5-row seed set is insufficient to judge reliability. The expanded dataset is required for model approval, pilot testing, and provider comparison. | H |
+| **Build human-in-the-loop approval workflow** | Contract | ShelfSense v1 is explicitly advisory, so planner approval for consequential recommendations must exist before the Copilot enters a real planning workflow. | H |
+| **Implement AI governance and kill switch** | Guardrails | Tenant isolation, escalation rules, auditability, and the ability to disable AI without disrupting core ShelfSense are minimum release controls. | H |
+| **Run Shadow AI discovery audit** | Guardrails | This low-cost discovery activity establishes evidence on unapproved AI use, customer-data exposure, tool ownership, and hidden spend before broader governance decisions are made. | H |
 
-### Horizon 2 — Next (3-9 months)
-*Commercialize only after Horizon 1 gates are met.*
+---
 
-| Initiative | Metric | Confidence |
-|-----------|--------|-----------|
-| Build customer-specific preference learning and closed-loop decision intelligence | ≥20% investigation-time reduction vs. pre-AI baseline while maintaining reliability thresholds | M |
-| Launch paid AI packaging with included usage allowance + overage and optimized cascading | ≥2 paid enterprise continuations; fully loaded AI COGS ≤$21/user/month; AI add-on designed for ≥70% incremental gross margin | M |
+## Horizon 2 — Validate (1-3 months)
 
-### Horizon 3 — Bet (9-18 months)
-*Expand the moat only where evidence supports it.*
+| Initiative | Strategy Component | Hypothesis | Kill Criteria | Confidence |
+|---|---|---|---|---|
+| **Implement calibrated confidence and abstention** | Contract | Confidence derived from data freshness, completeness, signal conflict, scenario similarity, and historical performance will reliably distinguish actionable cases from cases where ShelfSense should abstain. | **If higher-confidence tiers do not demonstrate meaningfully higher observed accuracy by week 6, stop automated confidence tiering and revert to conservative rule-based escalation.** | M |
+| **Implement multi-model routing and provider fallback** | Moat | ShelfSense can preserve reliability while moving routine workloads across lower-cost or alternate models, reducing strategic dependence on a single provider. | **If the backup or routed model cannot meet ShelfSense's approved reliability threshold on routine cases by week 6, stop expanding routed traffic and retain the proven provider for the pilot.** | M |
+| **Optimize fully loaded AI COGS** | Margin | Cascading, caching, retrieval optimization, infrastructure efficiency, and risk-based QA can move fully loaded AI COGS from $35 toward $21/user/month without compromising reliability. | **If we cannot demonstrate at least a 20% fully loaded cost reduction with no material reliability decline by week 6, stop prioritizing cost optimization and redirect resources toward proving customer value.** | M |
+| **Validate AI pricing and willingness to pay** | Margin | Customers experiencing measurable planning value will pay for a predictable enterprise AI add-on rather than expect the capability to be included at no additional charge. | **If fewer than 2 of 3 design partners demonstrate credible willingness to pay or enter a paid-continuation discussion by week 6, stop the current packaging proposal and revisit the value proposition.** | M |
+| **Create customer-specific decision lineage** | Moat | Connecting planning context → AI insight → planner decision → reason → actual outcome will create proprietary customer-level intelligence that strengthens future prioritization and recommendations. | **If fewer than 70% of pilot decisions can be reliably linked to subsequent outcomes by week 6, stop expanding the learning layer and fix instrumentation and data linkage first.** | M |
+| **Measure pilot business value** | Bet | The exception-focused Copilot will materially reduce the time planners spend investigating high-impact forecasts while preserving planner trust and decision quality. | **If we do not see at least a 15% improvement in investigation efficiency or a strong trajectory toward it by week 6, stop expanding the Copilot scope and revisit the initial wedge.** | M |
+| **Prepare Gate 1 executive review** | Bet | Combining customer value, reliability, commercial demand, economics, portability, and feedback-loop evidence will provide leadership with enough evidence for a clear go / pivot / stop decision. | **If the Gate 1 evidence package cannot demonstrate customer value, acceptable reliability, and credible commercial demand by the end of the pilot, do not release the next funding tranche.** | M |
 
-| Initiative | Metric | Confidence |
-|-----------|--------|-----------|
-| Expand from exception Copilot toward a broader trusted demand-decision layer; optionally pilot consent-based cross-customer benchmarking | Demonstrated improvement in decision outcomes across multiple customers; preference/correction loops measurably improve quality over time; legal/contract approval for any shared benchmark layer | L |
+---
 
+## Horizon 3 — Explore (3-6 months)
+
+| Initiative | Strategy Component | What must be true first | Confidence |
+|---|---|---|---|
+| **Build customer-specific preference learning** | Moat | ShelfSense first needs sufficient structured planner corrections, reliable outcome linkage, repeated usage, and evidence that planner/team behavior contains stable patterns before investing in personalization. | L |
+
+---
 ---
 
 ## Investment Gates
