@@ -19,21 +19,22 @@
 
 ## Confidence UX Design
 
-**Approach:** tiered, **calibrated system confidence** + visible evidence + human-in-loop trigger.
+**Approach:** Tiered, calibrated confidence with visible supporting evidence and a human-in-the-loop trigger; ShelfSense shows uncertainty explicitly and abstains when the available planning evidence is insufficient.
 
-Confidence must not be the LLM's self-reported certainty. It should combine:
-- data completeness and freshness;
-- similarity to evaluated cases;
-- agreement/conflict among planning signals;
-- historical performance for the scenario;
-- business impact/risk level.
+**Confident (>90%):** Show the forecast exception, supporting evidence, key demand drivers, data freshness, and suggested next investigation/action. The planner can Accept, Modify, Reject, or Escalate. ShelfSense may recommend but does not automatically change the forecast.
 
-**High confidence (>90% calibrated):** Show the finding, evidence, and suggested next investigation/action. Planner remains free to accept, modify, or reject.  
-**Medium confidence (70-90% calibrated):** Highlight uncertainty and conflicting evidence; require explicit planner review.  
-**Low confidence (<70% calibrated):** Abstain from a directional recommendation and explain what evidence is missing or conflicting.
+**Uncertain (50-90%):** At 70–90% confidence, show the recommendation with uncertainty and conflicting signals clearly highlighted and require explicit planner review. At 50–69%, do not give a directional recommendation; show the evidence gaps or conflicts and route the case for human review.
 
-**User control surface:**  
-Every insight shows source evidence, data freshness, confidence tier, rationale, and controls to **Accept / Modify / Reject / Escalate**. The user's reason is captured as structured feedback.
+**Not confident (<50%):** Abstain from generating a planning recommendation. Show what evidence is missing, stale, or contradictory and escalate to the planner for manual investigation.
+
+**User control surface:** 
+
+Every AI insight shows confidence level, supporting demand drivers, source evidence, and data freshness. Planners can Accept, Modify, Reject, or Escalate the recommendation and select a structured reason such as wrong driver, missing context, incorrect priority, or insufficient evidence. Corrections are stored with the planning context and later linked to actual outcomes to improve ShelfSense's customer-specific correction and preference loops. Feedback does not automatically retrain the production model; it enters a governed evaluation/learning dataset first.
+
+- Users see AI reasoning / drivers
+- Users correct & override outputs
+- Corrections feed back into the model / dataset
+- Users adjust the confidence threshold _(not yet)_
 
 ---
 
