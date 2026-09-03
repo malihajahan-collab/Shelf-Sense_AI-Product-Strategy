@@ -45,28 +45,20 @@ Proceed to broader scale only if:
 ## Board Pitch
 
 **Thesis (1 sentence):**
-
-ShelfSense should use AI first to resolve high-impact forecast exceptions faster, then earn the right to become a broader demand-decision layer by proving customer value, reliability, willingness to pay, and compounding customer-specific learning.
+ShelfSense should earn the right to become the trusted decision layer for CPG demand planning by first proving that it can help planners resolve high-value forecast exceptions faster, reliably, and at economics customers will pay for.
 
 **The case:**
-1. **Why now:** Demand planners spend too much time investigating fragmented signals, customers are asking for AI-enabled planning, and platform competitors can increasingly copy generic AI features.
-2. **What's defensible:** The defensible asset is not the model or a cross-customer network effect we do not yet have; it is the customer-specific decision graph created from CPG workflow context, planner corrections, decision reasons, and observed outcomes.
-3. **The economics:** Using the revised fully loaded assumption, AI adds ~$35/user/month at baseline and targets ~$21 after optimization against normalized revenue of $2,500/user/month. Total gross margin remains roughly 79.6%-80.2% before incremental AI revenue, making economics manageable if customers pay for the added value.
+1. Why now: The external market-timing case is not yet sufficiently evidenced in the strategy, so we should not manufacture an “AI is accelerating” argument. The credible timing case is competitive and internal: SAP / SAP IBP can absorb generic AI assistance into the platform layer, so ShelfSense has a limited window to prove a differentiated workflow around customer-specific corrections, decision outcomes, and planner trust before that functionality becomes table stakes. The next three months tell us whether that wedge is real.
+2. What's defensible: The moat is the **customer-level correction, preference, and outcome loop** identified in M2—not the model itself. Today that moat is incomplete: the Data Flywheel scores 10/20 and the Network Loop only 1/5. Horizon 1 therefore funds the missing asset directly: structured Accept/Modify/Reject reasons, outcome linkage, and customer-specific feedback. If repeated use does not measurably improve recommendation quality, we do not have the moat we are claiming.
+3. The economics: **AI COGS can be brought to approximately $21 per user per month**, versus a modeled $2,500 per AI-enabled planner per month revenue allocation. At baseline, AI reduces total product gross margin by approximately 1.4 points; after workload optimization, that falls to approximately 0.8 points before any AI revenue. The commercial model is a base subscription plus AI add-on with included usage and predictable overage. Horizon 2 only proceeds if fully loaded AI COGS stays at or below $21/user/month and the AI add-on supports at least 70% incremental gross margin.
 
 **The risks:**
-1. **Trust / failure modes:** The system can generate plausible but causally wrong explanations. Material changes remain human-approved, evidence must be visible, and the system must abstain when support is weak.
-2. **Scale / governance:** Cross-customer learning is contractually constrained; vendor portability and eval maturity are not yet proven; AI telemetry, retention, and access require governance.
-3. **Competitive:** SAP can win with a "good enough" native assistant through bundling and source-data proximity. ShelfSense must win through deeper CPG decision lineage and measurable closed-loop learning.
+1. Trust / failure modes: The highest-risk failure is ShelfSense presenting a confident causal explanation that the underlying data does not support—for example, attributing a sales decline to demand when the real cause is stockout, lost distribution, retailer execution, or competitive activity. The contract is explicit: ≥90% case-level correctness on the approved 100+ case evaluation set, ≥85% precision on high-priority exception flags, visible supporting evidence, calibrated confidence, and mandatory human review. Below 70% confidence, the system escalates rather than pretending certainty. ShelfSense v1 recommends; it does not autonomously change material forecasts.
+2. Scale / governance: At 10x usage, the risks are cost escalation, declining quality across more heterogeneous customer data, weak auditability, and pressure to automate beyond what the evidence supports. The control system is therefore built before scale: model cascading, provider fallback, telemetry, weekly quality review during pilot, explicit autonomy boundaries, and structured feedback linked to outcomes. We do not expand autonomy simply because usage grows.
+3. Competitive: The kill scenario is straightforward: if SAP / SAP IBP can deliver equivalent exception prioritization and explanation while ShelfSense fails to demonstrate a customer-specific learning advantage, we should not fund a broader AI platform. After two complete planning cycles, if the pilot does not show meaningful investigation-time reduction, acceptable reliability, evidence of willingness to pay, and measurable improvement from the correction/outcome loop, we kill or materially pivot the bet.
 
 **The ask:**
-
-Approve the existing **$3M / 12-month validation envelope as stage-gated capital, not an upfront scale commitment**:
-
-- **$750K authorized now** for the 0-3 month design-partner pilot, evaluation stack, feedback capture, model routing, and governance foundation.
-- **$1.25M reserved for months 3-9**, released only if Gate 1 passes.
-- **$1.0M reserved for months 9-12+**, released only if paid adoption, portability, learning-loop, and margin gates pass.
-
-Do **not** approve autonomous planning in this phase.
+Approve **$750K and a 4-person team for 3 months** to run the 3-design-partner pilot and prove four things: **customer value, reliability, willingness to pay, and defensibility**. Further funding from the $3M envelope is released only if Gate 1 is met. The trade-off: this funding should delay an equivalent lower-priority H2/H3 initiative.
 
 ---
 
