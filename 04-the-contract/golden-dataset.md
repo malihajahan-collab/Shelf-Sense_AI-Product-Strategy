@@ -12,6 +12,11 @@
 | 4 | Retailer forecast decreases while recent sales increase and a promotion is scheduled | Surface conflicting signals, avoid a definitive causal claim, and require planner confirmation | Y | LLM |
 | 5 | Required retailer or inventory data is missing or stale | Do not generate a planning recommendation; identify missing/stale inputs and request refresh or review | Y | rule |
 
+Dataset health
+- Total: 5
+- Edge cases: 4 (80.0%)
+- Judge mix: 40% rule / 60% LLM / 0% both
+
 **Adversarial / edge rows included:** 4  
 **Coverage gaps to close before pilot:** New launches, assortment/distribution changes, promotion cannibalization, competitor actions, seasonality shifts, supply disruptions, external shocks, sparse data, delayed feeds, duplicate records, extreme outliers, and category-specific behavior.
 
