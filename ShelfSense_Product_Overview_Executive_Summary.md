@@ -234,6 +234,6 @@ Achieving this could potentially improve:
 
 ## AI Product Strategy Question
 
-The central question guiding the certification case study is:
+The central question guiding the case study is:
 
 > **Where, if anywhere, can ShelfSense use AI to create sufficiently valuable, defensible, trusted, and economically sustainable improvements to CPG demand planning?**
